@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+
+.header {
+    height: 60px;
+    background: $color-one;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $color-white;
+    padding: 0px 2rem;
+
+    &.transparent {
+        background: transparent;
+    }
+
+    &__title {
+        color: $color-white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    &__links {
+        display: flex;
+        list-style-type: none;
+        
+        &_link {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: $color-white;
+
+            &:active {
+                color: $color-white;
+            }
+        }
+    }
+}
+
+// .selected {
+//     color: $color-two;
+//     border-bottom: 2px solid $color-two;
+// }

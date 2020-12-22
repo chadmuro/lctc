@@ -1,0 +1,16 @@
+@import '../../../styles/variables.scss';
+
+.pagehero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../../public/img/lctc-hero.jpg');
+    background-size: cover;
+    background-position: top;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+        color: $color-white;
+    }
+}

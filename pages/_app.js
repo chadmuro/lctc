@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import '../styles/globals.scss';
+import MediumContextProvider from '../contexts/MediumContext';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+	return (
+		<MediumContextProvider>
+			<Component {...pageProps} />
+		</MediumContextProvider>
+	);
 }
 
-export default MyApp
+export default MyApp;
