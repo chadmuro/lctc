@@ -7,7 +7,7 @@ const FeaturedProject = () => {
 		<div className={styles.featuredproject}>
 			<div className={styles.featuredproject__content}>
 				<div className={styles.featuredproject__content_title}>
-					<h3 className={styles.title}>Featured Project</h3>
+					<h3 className="title">Featured Project</h3>
 					<h4>Todo List with HTML, CSS, and Vanilla JavaScript</h4>
 					<p>
 						Learn basic HTML, CSS, JavaScript, and how to work with local

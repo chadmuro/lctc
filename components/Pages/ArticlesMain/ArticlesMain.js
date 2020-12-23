@@ -3,7 +3,7 @@ import styles from './ArticlesMain.module.scss';
 import { MediumContext } from '../../../contexts/MediumContext';
 import Card from '../Card/Card';
 
-const ArticleMain = () => {
+const ArticlesMain = () => {
 	const { posts, loading } = useContext(MediumContext);
 
 	return (
@@ -16,4 +16,4 @@ const ArticleMain = () => {
 	);
 };
 
-export default ArticleMain;
+export default ArticlesMain;

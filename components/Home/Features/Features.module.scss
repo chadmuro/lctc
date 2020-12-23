@@ -12,6 +12,11 @@
     justify-content: space-evenly;
     align-items: center;
 
+    @media (max-width: $bp-medium) {
+        flex-direction: column;
+        min-height: 1000px;
+    }
+
     &__card {
         border: 2px solid $color-one;
         width: 200px;
@@ -23,5 +28,11 @@
         align-items: center;
         text-align: center;
         border-radius: 10px;
+
+        @media (max-width: $bp-medium) {
+            width: 80%;
+            height: auto;
+            padding: 1rem;
+        }
     }
 }

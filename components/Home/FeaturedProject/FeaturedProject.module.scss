@@ -10,20 +10,32 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-    justify-content: center;
+	justify-content: center;
 
 	&__content {
 		color: $color-white;
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: space-around;
+		max-width: 1200px;
+		width: 80%;
 
-        max-width: 1200px;
+		@media (max-width: $bp-medium) {
+			flex-direction: column;
+			justify-content: center;
+			min-height: 800px;
+		}
 
 		&_title {
+			@media (max-width: $bp-medium) {
+				text-align: center;
+			}
 		}
 	}
 
 	&__card {
+		@media (max-width: $bp-medium) {
+			margin-top: 2rem;
+		}
 	}
 }

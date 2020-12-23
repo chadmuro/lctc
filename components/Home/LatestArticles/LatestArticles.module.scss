@@ -9,17 +9,31 @@
 
     &__content {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        align-items: center;
         max-width: 1200px;
+        width: 80%;
+
+        @media (max-width: $bp-medium) {
+            flex-direction: column-reverse;
+            text-align: center;
+		}
 
         &_links {
-
+            @media (max-width: $bp-medium) {
+				margin-top: 2rem;
+			}
         }
 
         &_link {
             text-decoration: underline;
+            padding-bottom: 1rem;
             cursor: pointer;
+            transition: 0.3s all;
+
+            &:hover {
+                color: $color-one;
+            }
         }
     }
-    
 }

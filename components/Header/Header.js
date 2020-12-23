@@ -1,9 +1,12 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from './Header.module.scss';
 
 const Header = () => {
+	const router = useRouter();
+
 	return (
-		<div className={styles.header}>
+		<div className={router.pathname === "/" ? styles.transparent : styles.header}>
 			<Link href="/">
 				<h3 className={styles.header__title}>Learn Code, Teach Code</h3>
 			</Link>

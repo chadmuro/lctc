@@ -29,7 +29,7 @@ const LatestArticles = () => {
 						})}
 				</div>
 				<div className={styles.latestarticles__content_title}>
-					<h3 className={styles.title}>Latest Articles</h3>
+					<h3 className="title">Latest Articles</h3>
 					<Link href="/articles">
 						<a className="button_link">View All Articles</a>
 					</Link>
