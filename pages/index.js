@@ -9,13 +9,14 @@ export async function getStaticProps(context) {
 
 	return {
 		props: {
-			projects,
-		},
-	};
+			projects
+		}
+	}
 }
 
 const Home = ({ projects }) => {
 	const project = projects[0];
+
 	return (
 		<div className="home">
 			<Hero />

@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin: 4rem auto;
+    color: $color-three;
+    text-decoration: underline;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        color: $color-five;
+    }
+}

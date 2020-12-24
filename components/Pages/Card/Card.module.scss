@@ -3,11 +3,11 @@
 .card {
     height: 300px;
     width: 300px;
+    margin: 1.5rem;
     background: $color-two;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     cursor: pointer;
-    
     
     &__image {
         height: 200px;

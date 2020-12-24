@@ -1,9 +1,12 @@
 import styles from './ProjectsMain.module.scss';
+import CardLarge from '../CardLarge/CardLarge';
 
-const ProjectsMain = () => {
+const ProjectsMain = ({projects}) => {
 	return (
 		<div className={styles.main}>
-			Coming soon...
+			{projects && projects.map(project => {
+				return <CardLarge project={project} />;
+			})}
 		</div>
 	);
 };

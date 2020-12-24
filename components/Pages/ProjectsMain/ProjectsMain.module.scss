@@ -2,7 +2,9 @@
 
 .main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 5rem 0;
+    margin: 5rem auto;
+    max-width: 1200px;
 }

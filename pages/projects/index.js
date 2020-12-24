@@ -16,8 +16,7 @@ const Projects = ({ projects }) => {
 	return (
 		<div className="projects">
 			<PageHero title="Projects" />
-			{projects[0].title}
-			<ProjectsMain />
+			<ProjectsMain projects={projects}/>
 		</div>
 	);
 };

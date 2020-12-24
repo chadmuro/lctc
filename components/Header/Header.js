@@ -27,11 +27,11 @@ const Header = () => {
 						<a className={styles.header__links_link}>Articles</a>
 					</Link>
 				</li>
-				<li>
+				{/* <li>
 					<Link href="/community">
 						<a className={styles.header__links_link}>Community</a>
 					</Link>
-				</li>
+				</li> */}
 			</ul>
 		</div>
 	);
