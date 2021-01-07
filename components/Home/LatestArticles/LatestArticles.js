@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from './LatestArticles.module.scss';
 
 const LatestArticles = ({ posts }) => {
-    const homePosts = posts.slice(0, 4)
+	const homePosts = posts.slice(0, 4);
 
 	const openNewTab = url => {
 		const newWindow = window.open(url, '_blank', 'noopener, noreferrer');

@@ -10,25 +10,26 @@ const cardVariants = {
 		transition: {
 			duration: 0.5,
 		},
-	},
+    },
+    whileHover: { scale: 1.1 }
 };
 
 const Card = ({ post }) => {
 	const openNewTab = url => {
 		const newWindow = window.open(url, '_blank', 'noopener, noreferrer');
 		if (newWindow) newWindow.opener = null;
-    };
-    const controls = useAnimation();
-		const [ref, inView] = useInView();
+	};
+	const controls = useAnimation();
+	const [ref, inView] = useInView();
 
-		useEffect(() => {
-			if (inView) {
-				controls.start('visible');
-			}
-			if (!inView) {
-				controls.start('hidden');
-			}
-		}, [controls, inView]);
+	useEffect(() => {
+		if (inView) {
+			controls.start('visible');
+		}
+		if (!inView) {
+			controls.start('hidden');
+		}
+	}, [controls, inView]);
 
 	return (
 		<motion.div
@@ -37,7 +38,8 @@ const Card = ({ post }) => {
 			initial="hidden"
 			animate={controls}
 			variants={cardVariants}
-			ref={ref}
+            ref={ref}
+            whileHover="whileHover"
 		>
 			<div className={styles.card__image}>
 				<img
