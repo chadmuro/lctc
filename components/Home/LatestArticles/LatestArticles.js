@@ -1,10 +1,8 @@
-import { useContext } from 'react';
 import Link from 'next/link';
 import styles from './LatestArticles.module.scss';
-import { MediumContext } from '../../../contexts/MediumContext';
 
-const LatestArticles = () => {
-	const { homePosts } = useContext(MediumContext);
+const LatestArticles = ({ posts }) => {
+    const homePosts = posts.slice(0, 4)
 
 	const openNewTab = url => {
 		const newWindow = window.open(url, '_blank', 'noopener, noreferrer');
@@ -31,7 +29,7 @@ const LatestArticles = () => {
 				<div className={styles.latestarticles__content_title}>
 					<h3 className="title">Latest Articles</h3>
 					<Link href="/articles">
-						<a className="button_link">View All Articles</a>
+						<a className="button_link">See More Articles</a>
 					</Link>
 				</div>
 			</div>

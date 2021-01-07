@@ -13,3 +13,10 @@
         color: $color-five;
     }
 }
+
+.main {
+    margin: 5rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

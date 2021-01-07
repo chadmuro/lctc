@@ -3,26 +3,26 @@ import Features from '../components/Home/Features/Features';
 import FeaturedProject from '../components/Home/FeaturedProject/FeaturedProject';
 import LatestArticles from '../components/Home/LatestArticles/LatestArticles';
 
-export async function getStaticProps(context) {
-	const res = await fetch('https://lctc-strapi.herokuapp.com/projects/');
-	const projects = await res.json();
+export async function getStaticProps() {
+    const res = await fetch(
+			'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40chadmuro'
+        );
+    const posts = await res.json();
 
-	return {
-		props: {
-			projects
-		}
-	}
+    return {
+        props: {
+            posts: posts.items
+        }
+    }
 }
 
-const Home = ({ projects }) => {
-	const project = projects[0];
+const Home = ({ posts }) => {
 
 	return (
 		<div className="home">
 			<Hero />
 			<Features />
-			<FeaturedProject project={project}/>
-			<LatestArticles />
+			<LatestArticles posts={posts}/>
 		</div>
 	);
 };

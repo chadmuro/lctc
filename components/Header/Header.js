@@ -17,14 +17,19 @@ const Header = () => {
 						<a className={styles.header__links_link}>Home</a>
 					</Link>
 				</li>
-				<li>
+				{/* <li>
 					<Link href="/projects">
 						<a className={styles.header__links_link}>Projects</a>
 					</Link>
-				</li>
+				</li> */}
 				<li>
 					<Link href="/articles">
 						<a className={styles.header__links_link}>Articles</a>
+					</Link>
+				</li>
+				<li>
+					<Link href="/mentor">
+						<a className={styles.header__links_link}>Mentor</a>
 					</Link>
 				</li>
 				{/* <li>

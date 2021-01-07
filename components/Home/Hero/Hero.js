@@ -14,8 +14,8 @@ const Hero = () => {
 			<div className={styles.hero__title}>
 				<h1>Learn Code, Teach Code</h1>
 				<p>Anyone can learn code by teaching code</p>
-				<Link href="/projects">
-					<button className="button">Projects</button>
+				<Link href="/mentor">
+					<button className={styles.hero__button}>Free session</button>
 				</Link>
 			</div>
 		</div>
