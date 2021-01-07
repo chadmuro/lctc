@@ -16,8 +16,6 @@ export async function getStaticProps() {
 }
 
 const Articles = ({ posts }) => {
-	console.log(posts);
-
 	const openNewTab = url => {
 		const newWindow = window.open(url, '_blank', 'noopener, noreferrer');
 		if (newWindow) newWindow.opener = null;
