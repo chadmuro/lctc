@@ -32,6 +32,11 @@ const Header = () => {
 						<a className={styles.header__links_link}>Mentor</a>
 					</Link>
 				</li>
+				<li>
+					<Link href="/resources">
+						<a className={styles.header__links_link}>Resources</a>
+					</Link>
+				</li>
 				{/* <li>
 					<Link href="/community">
 						<a className={styles.header__links_link}>Community</a>

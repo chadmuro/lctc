@@ -1,16 +1,16 @@
 import PageHero from '../../components/Pages/PageHero/PageHero';
 
-const Mentor = () => {
+const Resources = () => {
 	return (
-		<div className="mentor">
-			<PageHero title="Mentor" />
+		<div className="resources">
+			<PageHero title="Resources" />
 			<p
 				style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}
 			>
-				Mentorship program coming soon...
+				Resources coming soon...
 			</p>
 		</div>
 	);
 };
 
-export default Mentor;
+export default Resources;
