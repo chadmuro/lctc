@@ -9,19 +9,25 @@
 
     &__content {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        max-width: 1200px;
+        max-width: 1000px;
         width: 80%;
 
         @media (max-width: $bp-medium) {
             flex-direction: column-reverse;
             text-align: center;
-		}
+        }
+        
+        &_title {
+            min-width: 300px;
+        }
 
         &_links {
+            padding-right: 1rem;
+
             @media (max-width: $bp-medium) {
-				margin-top: 2rem;
+				padding-top: 2rem;
 			}
         }
 

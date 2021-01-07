@@ -7,7 +7,7 @@ const Mentor = () => {
 			<p
 				style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}
 			>
-				
+				Coming soon...
 			</p>
 		</div>
 	);

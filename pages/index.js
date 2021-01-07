@@ -2,6 +2,7 @@ import Hero from '../components/Home/Hero/Hero';
 import Features from '../components/Home/Features/Features';
 import FeaturedProject from '../components/Home/FeaturedProject/FeaturedProject';
 import LatestArticles from '../components/Home/LatestArticles/LatestArticles';
+import Mentor from '../components/Home/Mentor/Mentor';
 
 export async function getStaticProps() {
     const res = await fetch(
@@ -22,6 +23,7 @@ const Home = ({ posts }) => {
 		<div className="home">
 			<Hero />
 			<Features />
+            <Mentor />
 			<LatestArticles posts={posts}/>
 		</div>
 	);

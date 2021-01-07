@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+
+.mentor {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url('../../../public/img/lctc-hero2.jpg');
+	background-size: cover;
+	background-position: top;
+	background-attachment: fixed;
+	min-height: 600px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+    justify-content: center;
+    color: $color-white;
+    
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1000px;
+        width: 80%;
+
+        @media (max-width: $bp-medium) {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        &_title {
+            min-width: 300px;
+            padding-bottom: 2rem;
+        }
+    }
+}
