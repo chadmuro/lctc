@@ -4,7 +4,7 @@ const Community = () => {
 	return (
 		<div className="community">
 			<PageHero title="Community" />
-			<p style={{display: 'flex', justifyContent: 'center', marginTop: '2rem'}}>Coming soon...</p>
+			<p style={{display: 'flex', justifyContent: 'center', marginTop: '2rem'}}>Community page coming soon...</p>
 		</div>
 	);
 };
