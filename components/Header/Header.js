@@ -10,7 +10,11 @@ const Header = () => {
 
 	const toggleMenu = () => {
 		setOpenMenu(!openMenu);
-	};
+    };
+    
+    const closeMenu = () => {
+        setOpenMenu(false);
+    }
 
 	return (
 		<div
@@ -24,91 +28,51 @@ const Header = () => {
 				</h3>
 			</Link>
 
-			<ul className={styles.header__links}>
-				<li>
-					<Link href="/">
-						<a className={styles.header__link}>Home</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/projects">
-						<a className={styles.header__link}>Projects</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/articles">
-						<a className={styles.header__link}>Articles</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/mentor">
-						<a className={styles.header__link}>Mentor</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/resources">
-						<a className={styles.header__link}>Resources</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/community">
-						<a className={styles.header__link}>Community</a>
-					</Link>
-				</li>
-			</ul>
-
 			<ul
-				className={openMenu ? styles.header__openlinks : styles.header__closelinks}
+				className={
+					openMenu ? `${styles.header__links} ${styles.active}` : styles.header__links
+				}
 			>
-				<li>
+				<li className={styles.header__item}>
 					<Link href="/">
-						<a className={styles.header__link} onClick={toggleMenu}>
+						<a className={styles.header__link} onClick={closeMenu}>
 							Home
 						</a>
 					</Link>
 				</li>
-				<li>
+				<li className={styles.header__item}>
 					<Link href="/projects">
-						<a className={styles.header__link} onClick={toggleMenu}>
+						<a className={styles.header__link} onClick={closeMenu}>
 							Projects
 						</a>
 					</Link>
 				</li>
-				<li>
+				<li className={styles.header__item}>
 					<Link href="/articles">
-						<a className={styles.header__link} onClick={toggleMenu}>
+						<a className={styles.header__link} onClick={closeMenu}>
 							Articles
 						</a>
 					</Link>
 				</li>
-				<li>
+				<li className={styles.header__item}>
 					<Link href="/mentor">
-						<a className={styles.header__link} onClick={toggleMenu}>
+						<a className={styles.header__link} onClick={closeMenu}>
 							Mentor
 						</a>
 					</Link>
 				</li>
-				<li>
+				<li className={styles.header__item}>
 					<Link href="/resources">
-						<a className={styles.header__link} onClick={toggleMenu}>
+						<a className={styles.header__link} onClick={closeMenu}>
 							Resources
-						</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/community">
-						<a className={styles.header__link} onClick={toggleMenu}>
-							Community
 						</a>
 					</Link>
 				</li>
 			</ul>
 
-			{openMenu ? (
-				<AiOutlineClose className={styles.close} onClick={toggleMenu} />
-			) : (
-				<AiOutlineMenu className={styles.hamburger} onClick={toggleMenu} />
-			)}
+			<div className={styles.icon} onClick={toggleMenu}>
+				{openMenu ? <AiOutlineClose /> : <AiOutlineMenu />}
+			</div>
 		</div>
 	);
 };
