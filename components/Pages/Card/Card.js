@@ -11,7 +11,6 @@ const cardVariants = {
 			duration: 0.5,
 		},
     },
-    whileHover: { scale: 1.1 }
 };
 
 const Card = ({ post }) => {
@@ -39,7 +38,6 @@ const Card = ({ post }) => {
 			animate={controls}
 			variants={cardVariants}
             ref={ref}
-            whileHover="whileHover"
 		>
 			<div className={styles.card__image}>
 				<img
