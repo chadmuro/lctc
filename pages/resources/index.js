@@ -1,5 +1,6 @@
 import PageHero from '../../components/Pages/PageHero/PageHero';
 import styles from './styles.module.scss';
+import sanityClient from '../../client';
 
 const platforms = [
 	{
@@ -20,11 +21,31 @@ const platforms = [
 	},
 ];
 
-const Resources = () => {
+export async function getStaticProps() {
+	const platforms = await sanityClient.fetch(`*[_type == "platform"]{
+        name,
+        link,
+        _id
+    }`);
+	const challenges = await sanityClient.fetch(`*[_type == "challenge"]{
+        name,
+        link,
+        _id
+    }`);
+
+	return {
+		props: {
+            platforms,
+            challenges
+		},
+	};
+}
+
+const Resources = ({ platforms, challenges }) => {
     const openNewTab = url => {
 			const newWindow = window.open(url, '_blank', 'noopener, noreferrer');
 			if (newWindow) newWindow.opener = null;
-		};
+        };
 
 	return (
 		<div className="resources">
@@ -35,7 +56,7 @@ const Resources = () => {
 					<ul>
 						{platforms &&
 							platforms.map(platform => (
-								<li>
+								<li key={platform._id}>
 									<p className={styles.content__name}>
 										{platform.name} &nbsp;
 										<a
@@ -43,6 +64,23 @@ const Resources = () => {
                                             onClick={() => openNewTab(platform.link)}
 										>
 											{platform.link}
+										</a>
+									</p>
+								</li>
+							))}
+					</ul>
+					<h3 className={styles.content__title}>Coding Challenges</h3>
+					<ul>
+						{challenges &&
+							challenges.map(challenge => (
+								<li key={challenge._id}>
+									<p className={styles.content__name}>
+										{challenge.name} &nbsp;
+										<a
+											className={styles.content__link}
+                                            onClick={() => openNewTab(challenge.link)}
+										>
+											{challenge.link}
 										</a>
 									</p>
 								</li>
