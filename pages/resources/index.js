@@ -13,6 +13,14 @@ export async function getStaticProps() {
 			title: 'Coding Challenges',
 			links: [],
 		},
+		{
+			title: 'Frontend Resources',
+			links: [],
+		},
+		{
+			title: 'Backend Resources',
+			links: [],
+		},
 	];
 
 	const data = await sanityClient.fetch(`*[_type == "link"]{
@@ -24,17 +32,27 @@ export async function getStaticProps() {
     }`);
 
 	data.forEach(link => {
-		if (link.category === 'Platform') {
-			resources[0].links.push(link);
-		}
-		if (link.category === 'Challenge') {
-			resources[1].links.push(link);
+		switch (link.category) {
+			case 'Platform':
+				resources[0].links.push(link);
+				break;
+			case 'Challenge':
+				resources[1].links.push(link);
+                break;
+            case 'Frontend':
+                resources[2].links.push(link);
+                break;
+            case 'Backend':
+                resources[3].links.push(link);
+                break;
+			default:
+				null;
 		}
 	});
 
 	return {
 		props: {
-			resources
+			resources,
 		},
 	};
 }

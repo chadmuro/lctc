@@ -8,15 +8,20 @@
 }
 
 .content {
-    margin: 4rem auto;
+    margin: 3rem auto;
     text-align: center;
 
     &__title {
         font-size: 2rem;
+        background: $color-two;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 10px;
     }
 
     &__name {
         font-size: 1.5rem;
+        margin-bottom: 0.3rem;
     }
 
     &__link {
