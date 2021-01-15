@@ -3,17 +3,25 @@ import styles from './styles.module.scss';
 import sanityClient from '../../client';
 
 export async function getStaticProps() {
-	const platforms = await sanityClient.fetch(`*[_type == "platform"]{
+    const platforms = [];
+    const challenges = [];
+	const links = await sanityClient.fetch(`*[_type == "link"]{
         name,
         link,
-        _id
-    }`);
-	const challenges = await sanityClient.fetch(`*[_type == "challenge"]{
-        name,
-        link,
-        _id
+        _id,
+        image,
+        'category': category->title
     }`);
 
+    links.forEach(link => {
+        if (link.category === 'Platform') {
+            platforms.push(link);
+        }
+        if (link.category === 'Challenge') {
+            challenges.push(link);
+        }
+    })
+	
 	return {
 		props: {
 			platforms,
@@ -26,7 +34,9 @@ const Resources = ({ platforms, challenges }) => {
 	const openNewTab = url => {
 		const newWindow = window.open(url, '_blank', 'noopener, noreferrer');
 		if (newWindow) newWindow.opener = null;
-	};
+    };
+    
+    console.log(platforms);
 
 	return (
 		<div className="resources">
