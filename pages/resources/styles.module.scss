@@ -1,0 +1,37 @@
+@import '../../styles/variables';
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    margin: 4rem auto;
+    text-align: center;
+
+    &__title {
+        font-size: 2rem;
+    }
+
+    &__name {
+        font-size: 1.5rem;
+    }
+
+    &__link {
+        cursor: pointer;
+        transition: 0.3s all;
+
+
+        &:hover {
+            color: $color-one;
+        }
+    }
+
+    ul {
+        list-style: none;
+    }
+
+
+}
