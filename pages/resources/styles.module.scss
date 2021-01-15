@@ -5,18 +5,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &__layout {
+        max-width: 1200px;
+    }
 }
 
 .content {
-    margin: 4rem auto;
+    display: flex;
+    flex-direction: column;
+    margin: 3rem auto;
     text-align: center;
 
     &__title {
         font-size: 2rem;
+        background: $color-two;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 10px;
+        width: 500px;
+        align-self: center;
     }
 
     &__name {
         font-size: 1.5rem;
+        margin-bottom: 0.3rem;
     }
 
     &__link {
