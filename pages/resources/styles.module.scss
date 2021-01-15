@@ -5,9 +5,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &__layout {
+        max-width: 1200px;
+    }
 }
 
 .content {
+    display: flex;
+    flex-direction: column;
     margin: 3rem auto;
     text-align: center;
 
@@ -17,6 +23,8 @@
         padding: 0.5rem 1rem;
         margin-bottom: 0.5rem;
         border-radius: 10px;
+        width: 500px;
+        align-self: center;
     }
 
     &__name {

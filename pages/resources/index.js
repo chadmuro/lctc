@@ -1,7 +1,10 @@
-import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import PageHero from '../../components/Pages/PageHero/PageHero';
 import styles from './styles.module.scss';
 import sanityClient from '../../client';
+import Carousel from '../../components/Pages/Carousel/Carousel';
 
 export async function getStaticProps() {
 	const resources = [
@@ -27,7 +30,12 @@ export async function getStaticProps() {
         name,
         link,
         _id,
-        image,
+        image{
+            asset->{
+                _id,
+                url
+            }
+        },
         'category': category->title
     }`);
 
@@ -38,13 +46,13 @@ export async function getStaticProps() {
 				break;
 			case 'Challenge':
 				resources[1].links.push(link);
-                break;
-            case 'Frontend':
-                resources[2].links.push(link);
-                break;
-            case 'Backend':
-                resources[3].links.push(link);
-                break;
+				break;
+			case 'Frontend':
+				resources[2].links.push(link);
+				break;
+			case 'Backend':
+				resources[3].links.push(link);
+				break;
 			default:
 				null;
 		}
@@ -57,7 +65,16 @@ export async function getStaticProps() {
 	};
 }
 
-const Resources = ({ resources }) => {
+const ResourcesSection = ({ resource }) => {
+	const controls = useAnimation();
+	const { ref, inView } = useInView();
+
+	useEffect(() => {
+		if (inView) {
+			controls.start('visible');
+		}
+	}, [controls, inView]);
+
 	const openNewTab = url => {
 		const newWindow = window.open(url, '_blank', 'noopener, noreferrer');
 		if (newWindow) newWindow.opener = null;
@@ -75,33 +92,44 @@ const Resources = ({ resources }) => {
 	};
 
 	return (
-		<div className="resources">
+		<div className={styles.content}>
+			<h3 ref={ref} className={styles.content__title}>
+				{resource.title}
+			</h3>
+			<ul>
+				{resource.links &&
+					resource.links.map(link => (
+						<li key={link._id}>
+							<motion.p
+								className={styles.content__name}
+								initial="hidden"
+								animate={controls}
+								variants={linkVariants}
+							>
+								<a
+									className={styles.content__link}
+									onClick={() => openNewTab(link.link)}
+								>
+									{link.name}
+								</a>
+							</motion.p>
+						</li>
+					))}
+			</ul>
+		</div>
+	);
+};
+
+const Resources = ({ resources }) => {
+	return (
+		<div className={styles.resources}>
 			<PageHero title="Resources" />
 			<main className={styles.main}>
 				{resources &&
 					resources.map(resource => (
-						<div className={styles.content} key={resource.title}>
-							<h3 className={styles.content__title}>{resource.title}</h3>
-							<ul>
-								{resource.links &&
-									resource.links.map(link => (
-										<li key={link._id}>
-											<motion.p
-												className={styles.content__name}
-												initial="hidden"
-												animate="visible"
-												variants={linkVariants}
-											>
-												<a
-													className={styles.content__link}
-													onClick={() => openNewTab(link.link)}
-												>
-													{link.name}
-												</a>
-											</motion.p>
-										</li>
-									))}
-							</ul>
+						<div className={styles.main__layout} key={resource.title}>
+							<ResourcesSection resource={resource}  />
+							<Carousel resource={resource}/>
 						</div>
 					))}
 			</main>
