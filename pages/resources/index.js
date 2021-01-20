@@ -20,10 +20,6 @@ export async function getStaticProps() {
 			title: 'Frontend Resources',
 			links: [],
 		},
-		{
-			title: 'Backend Resources',
-			links: [],
-		},
 	];
 
 	const data = await sanityClient.fetch(`*[_type == "link"]{
@@ -49,9 +45,6 @@ export async function getStaticProps() {
 				break;
 			case 'Frontend':
 				resources[2].links.push(link);
-				break;
-			case 'Backend':
-				resources[3].links.push(link);
 				break;
 			default:
 				null;
@@ -128,8 +121,8 @@ const Resources = ({ resources }) => {
 				{resources &&
 					resources.map(resource => (
 						<div className={styles.main__layout} key={resource.title}>
-							<ResourcesSection resource={resource}  />
-							<Carousel resource={resource}/>
+							<ResourcesSection resource={resource} />
+							<Carousel resource={resource} />
 						</div>
 					))}
 			</main>

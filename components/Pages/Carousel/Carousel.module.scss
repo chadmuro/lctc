@@ -1,21 +1,38 @@
 .carousel {
-    display: flex;
-	flex-wrap: nowrap;
-	align-items: center;
-    justify-content: center;
-    width: 100%;
+	width: 800px;
+	height: 150px;
+	overflow: hidden;
 
-	
+	&__content {
+		display: flex;
+		list-style: none;
+		animation: scrolling 10s linear infinite;
+
+		&:hover {
+			animation-play-state: paused;
+		}
+	}
 
 	&__image {
-		height: 100px;
-        width: 150px;
-        margin: 0 4rem;
+		height: 150px;
+		width: 200px;
+		padding: 0 2rem;
+		flex-shrink: 0;
 	}
 
 	&__link {
 		height: 100%;
 		width: 100%;
 		object-fit: contain;
+		cursor: pointer;
+	}
+}
+
+@keyframes scrolling {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translatex(-800px);
 	}
 }
