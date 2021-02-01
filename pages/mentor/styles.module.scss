@@ -44,4 +44,9 @@
 .icon {
     color: #1da1f2;
     cursor: pointer;
+    transition: 0.3s all;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 }
