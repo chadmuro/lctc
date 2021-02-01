@@ -40,13 +40,13 @@ const Header = () => {
 						</a>
 					</Link>
 				</li>
-				<li className={styles.header__item}>
+				{/* <li className={styles.header__item}>
 					<Link href="/projects">
 						<a className={styles.header__link} onClick={closeMenu}>
 							Projects
 						</a>
 					</Link>
-				</li>
+				</li> */}
 				<li className={styles.header__item}>
 					<Link href="/articles">
 						<a className={styles.header__link} onClick={closeMenu}>
