@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+
+.mentor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2rem;
+
+    &__top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        & h4 {
+            font-size: 2rem;
+        }
+    }
+
+    &__story {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid $color-one;
+        margin-bottom: 2rem;
+        border-radius: 10px;
+        padding: 2rem;
+       
+        & h3 {
+            text-align: center;
+            font-size: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
+}
+
+.icon {
+    color: #1da1f2;
+    cursor: pointer;
+}
